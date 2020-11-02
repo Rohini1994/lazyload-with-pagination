@@ -1,0 +1,32 @@
+<table class="table table-hover">
+    <table class="table table-hover">
+            <thead>
+              <tr>
+               
+                <th>UserId</th>
+                <th> Id</th>
+                <th>Title</th>
+                <th>Body</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let issue of issues | paginate: { id: 'listing_pagination',
+              itemsPerPage: 5,
+              currentPage: pageNumber,
+              totalItems: totalRecords }">
+                <td>{{issue.userId}}</td>
+                <td>{{issue.id}}</td>
+                <td>{{issue.title}}</td>
+                <td>{{issue.body}}</td>
+              </tr>
+
+            </tbody>
+              
+          </table>
+          <div>
+            <pagination-controls id="listing_pagination" maxSize="5" directionLinks="true" (pageChange)="pageNumber=$event"></pagination-controls>
+          </div>
+    
+    
+  </table>
